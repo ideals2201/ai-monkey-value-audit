@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ideals2201.github.io/ai-monkey-value-audit/sitemap.xml
