@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Public-safe prototype for checking tender intake completeness, deadlines, duplicates, and human-review routing.">
+  <title>Tender Intelligence Readiness Prototype</title>
+  <style>
+    :root{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#182235;background:#f3f6fa}*{box-sizing:border-box}body{margin:0}main{max-width:980px;margin:auto;padding:36px 18px 64px}.panel{background:#fff;border:1px solid #dce3ed;border-radius:18px;padding:clamp(20px,4vw,38px);box-shadow:0 16px 48px #18315212}.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#2457d6}h1{font-size:clamp(2rem,6vw,4rem);letter-spacing:-.045em;line-height:1;margin:.35em 0}.lead{color:#516078;line-height:1.6;max-width:760px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:26px 0}.wide{grid-column:1/-1}label{display:grid;gap:7px;font-size:.88rem;font-weight:700}input,select,textarea{width:100%;border:1px solid #cbd5e3;border-radius:10px;padding:12px;font:inherit;background:#fff}textarea{min-height:92px;resize:vertical}.actions{display:flex;gap:10px;flex-wrap:wrap}button,a.button{border:0;border-radius:11px;padding:12px 16px;font:inherit;font-weight:800;text-decoration:none;cursor:pointer}.primary{background:#2457d6;color:#fff}.secondary{background:#edf2ff;color:#24469c}.result{margin-top:24px;border-radius:14px;padding:20px;border:1px solid #d5ddea;background:#f8fafc}.result[hidden]{display:none}.status{display:inline-block;padding:7px 11px;border-radius:999px;font-weight:850}.go{background:#ddf7e8;color:#12643b}.hold{background:#fff2cc;color:#795500}.stop{background:#ffe2e2;color:#8d2020}.checks{display:grid;gap:8px;margin:16px 0}.check{padding:10px 12px;border-radius:9px;background:#fff;border:1px solid #e0e6ef}.fine{font-size:.9rem;line-height:1.55;color:#69768a;margin-top:28px}@media(max-width:680px){.grid{grid-template-columns:1fr}.wide{grid-column:auto}}
+  </style>
+</head>
+<body><main><section class="panel">
+  <div class="eyebrow">Synthetic data only · public demonstration</div>
+  <h1>Tender readiness, before the deadline becomes a fire drill.</h1>
+  <p class="lead">This deterministic prototype normalizes a tender deadline, checks minimum intake fields, detects a supplied duplicate reference, and routes uncertain records to human review. It never submits a bid and does not need private tender documents.</p>
+  <form id="auditForm">
+    <div class="grid">
+      <label>Tender reference<input id="reference" value="VIPL-SYNTH-2026-014" required></label>
+      <label>Buyer / issuing authority<input id="buyer" value="Synthetic Metro Authority" required></label>
+      <label>Deadline date and time<input id="deadline" type="datetime-local" required></label>
+      <label>Deadline timezone<select id="timezone"><option value="Asia/Kolkata">Asia/Kolkata (IST)</option><option value="UTC">UTC</option><option value="Europe/London">Europe/London</option><option value="America/New_York">America/New_York</option></select></label>
+      <label>Estimated contract value<input id="value" type="number" min="0" value="2500000" required></label>
+      <label>Currency<select id="currency"><option>INR</option><option>USD</option><option>GBP</option><option>EUR</option></select></label>
+      <label class="wide">Required submission items (one per line)<textarea id="requirements">Technical proposal
+Commercial proposal
+Company registration
+Past-performance evidence</textarea></label>
+      <label class="wide">Items currently available (one per line)<textarea id="available">Technical proposal
+Company registration
+Past-performance evidence</textarea></label>
+      <label class="wide">Known references already in the intake register (comma separated)<input id="known" value="VIPL-SYNTH-2026-011, VIPL-SYNTH-2026-012"></label>
+    </div>
+    <div class="actions"><button class="primary" type="submit">Run readiness gate</button><button class="secondary" type="button" id="loadDuplicate">Load duplicate test</button><a class="button secondary" href="index.html">Back to fixed audit</a></div>
+  </form>
+  <section class="result" id="result" hidden aria-live="polite"></section>
+  <p class="fine"><strong>Boundary:</strong> This is a client-side demonstration using synthetic inputs. A production workflow would require approved source connectors, role-based access, immutable audit logs, documented timezone rules, and a human decision before any bid submission. Do not paste confidential tender text, credentials, personal data, or restricted documents here.</p>
+</section></main>
+<script>
+  const $=id=>document.getElementById(id);
+  const lines=value=>[...new Set(value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean))];
+  const esc=value=>value.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+  function defaultDeadline(){const d=new Date(Date.now()+72*3600000);d.setMinutes(0,0,0);$("deadline").value=new Date(d-d.getTimezoneOffset()*60000).toISOString().slice(0,16)}
+  defaultDeadline();
+  $("loadDuplicate").addEventListener("click",()=>{$("reference").value="VIPL-SYNTH-2026-011";$("available").value="Technical proposal\nCommercial proposal\nCompany registration\nPast-performance evidence"});
+  $("auditForm").addEventListener("submit",event=>{event.preventDefault();const ref=$("reference").value.trim().toUpperCase();const buyer=$("buyer").value.trim();const required=lines($("requirements").value);const have=new Set(lines($("available").value).map(x=>x.toLowerCase()));const missing=required.filter(x=>!have.has(x.toLowerCase()));const known=$("known").value.split(",").map(x=>x.trim().toUpperCase()).filter(Boolean);const duplicate=known.includes(ref);const deadline=new Date($("deadline").value);const hours=(deadline-Date.now())/3600000;const invalid=!ref||!buyer||!Number.isFinite(deadline.getTime())||!required.length;let state="GO TO HUMAN REVIEW",klass="go",reason="Minimum intake is complete; a human owner can perform the commercial and eligibility review.";if(invalid){state="BLOCKED",klass="stop",reason="Required intake data is invalid or missing."}else if(duplicate){state="BLOCKED — DUPLICATE",klass="stop",reason="The reference already exists in the supplied intake register."}else if(hours<=0){state="BLOCKED — DEADLINE PASSED",klass="stop",reason="The entered deadline has passed; automated submission is prohibited."}else if(missing.length||hours<24){state="HOLD",klass="hold",reason=missing.length?"Required submission items are missing.":"Less than 24 hours remain; escalate to a human owner."}const checks=[`Reference: ${esc(ref||"missing")}`,`Buyer: ${esc(buyer||"missing")}`,`Deadline input: ${esc($("deadline").value)} (${esc($("timezone").value)})`,`Time remaining: ${Number.isFinite(hours)?hours.toFixed(1):"invalid"} hours`,`Duplicate: ${duplicate?"yes":"no"}`,`Missing items: ${missing.length?missing.map(esc).join(", "):"none"}`,`Value: ${esc($("currency").value)} ${Number($("value").value||0).toLocaleString()}`];$("result").innerHTML=`<span class="status ${klass}">${state}</span><h2>${reason}</h2><div class="checks">${checks.map(x=>`<div class="check">${x}</div>`).join("")}</div><strong>Next action:</strong> ${klass==="go"?"Assign a named human reviewer and record the eligibility decision.":klass==="hold"?"Resolve missing evidence or obtain an explicit deadline-risk decision.":"Stop the automation and open an exception record."}`;$("result").hidden=false;$("result").scrollIntoView({behavior:"smooth",block:"nearest"})});
+</script></body></html>
