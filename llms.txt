@@ -6,6 +6,7 @@ Canonical catalog: https://ideals2201.github.io/ai-monkey-value-audit/services.h
 Machine-readable offers: https://ideals2201.github.io/ai-monkey-value-audit/offers.json
 Full synthetic QA sample: https://ideals2201.github.io/ai-monkey-value-audit/sample-booking-qa.html
 Public-source USD 10 audit: https://ideals2201.github.io/ai-monkey-value-audit/
+Detailed USD 149 automation audit: https://ideals2201.github.io/ai-monkey-value-audit/automation-audit.html
 
 ## Core offers
 

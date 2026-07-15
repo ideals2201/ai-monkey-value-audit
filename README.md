@@ -8,6 +8,8 @@ A small, fixed-price review for one public opportunity or one redacted automatio
 
 **Fixed-scope service catalog:** <https://ideals2201.github.io/ai-monkey-value-audit/services.html>
 
+**USD 149 AI Workflow Automation Audit:** <https://ideals2201.github.io/ai-monkey-value-audit/automation-audit.html>
+
 **Machine-readable offers:** <https://ideals2201.github.io/ai-monkey-value-audit/offers.json> · **LLM discovery:** <https://ideals2201.github.io/ai-monkey-value-audit/llms.txt>
 
 ## See the deliverable before buying
