@@ -1,0 +1,72 @@
+name: Request a fixed USD 10 public-safe audit
+description: Confirm the scope for one public opportunity or one fully redacted workflow journey.
+title: "Audit request: "
+labels:
+  - audit-request
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form only for public or synthetic material. The fixed price is USD 10, requested only after the scope is confirmed. Typical turnaround is within 24 hours after confirmation.
+
+        **Do not submit passwords, OTPs, API keys, cookies, production access, private customer records, payment-card data, wallet secrets, KYC/tax documents, private screenshots, recordings, or unredacted exports.**
+
+  - type: dropdown
+    id: audit_type
+    attributes:
+      label: Audit type
+      description: Choose the closest scope.
+      options:
+        - Public opportunity / bounty / grant / credit
+        - Redacted workflow reliability QA
+        - Synthetic prototype or acceptance-test review
+    validations:
+      required: true
+
+  - type: input
+    id: public_url
+    attributes:
+      label: Public URL
+      description: Link to the public source, documentation, or synthetic example. Use N/A only when the description below is fully self-contained and redacted.
+      placeholder: https://example.com/public-page
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Question or workflow journey
+      description: State the decision you need, or describe one redacted input-to-output journey.
+      placeholder: "Example: Check whether retrying this booking journey can create a duplicate calendar event."
+    validations:
+      required: true
+
+  - type: textarea
+    id: success
+    attributes:
+      label: Intended success condition
+      description: What observable result should count as success?
+      placeholder: "Exactly one booking, one CRM record, and one confirmation for each stable request ID."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: deliverable
+    attributes:
+      label: Preferred deliverable
+      options:
+        - GO / HOLD / NO-GO audit with evidence and next action
+        - State contract, failure map, 3 tests, and 1 prioritized fix
+        - Public-source eligibility, competition, and payout-risk check
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public-safe confirmation
+      options:
+        - label: I confirm this request contains only public, synthetic, or fully redacted information and no secrets or private personal/customer data.
+          required: true
+        - label: I understand payment is requested only after the USD 10 scope is confirmed, and submitting this issue is not itself a purchase.
+          required: true

@@ -4,6 +4,8 @@ A small, fixed-price review for one public opportunity or one redacted automatio
 
 **Live offer:** <https://ideals2201.github.io/ai-monkey-value-audit/>
 
+**Public scope request:** <https://github.com/ideals2201/ai-monkey-value-audit/issues/new/choose>
+
 ## See the deliverable before buying
 
 - [Complete synthetic booking-workflow QA sample](https://ideals2201.github.io/ai-monkey-value-audit/sample-booking-qa.html)
@@ -18,6 +20,7 @@ The full sample shows the actual structure: a GO / HOLD / NO-GO decision, state 
 - Turnaround: **within 24 hours** after scope confirmation
 - Input: one public URL, synthetic payload, or fully redacted workflow description
 - Scope confirmation: `binhaitjzhda@gmail.com`
+- Public scope confirmation: GitHub issue form (public or synthetic material only)
 - Payment after scope confirmation: <https://paypal.me/binhai2001/10>
 
 ## Public-safe boundary
