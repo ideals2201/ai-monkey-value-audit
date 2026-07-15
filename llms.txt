@@ -1,0 +1,20 @@
+# TinyOps Studio LLC
+
+> Fixed-scope, public-safe workflow reviews and automation services with direct Whop checkout.
+
+Canonical catalog: https://ideals2201.github.io/ai-monkey-value-audit/services.html
+Machine-readable offers: https://ideals2201.github.io/ai-monkey-value-audit/offers.json
+Full synthetic QA sample: https://ideals2201.github.io/ai-monkey-value-audit/sample-booking-qa.html
+Public-source USD 10 audit: https://ideals2201.github.io/ai-monkey-value-audit/
+
+## Core offers
+
+- USD 49: n8n Workflow Help - Quick Triage. One bounded workflow issue; written delivery within two business days. Purchase: https://whop.com/tinyops-studio-llc/quick-workflow-triage/
+- USD 149: Make Workflow Kickoff Review. Plan one Make.com workflow before implementation. Purchase: https://whop.com/tinyops-studio-llc/make-workflow-kickoff-review/
+- USD 149: AI Workflow Automation Audit. Review up to three workflows and receive one implementation-ready specification. Purchase: https://whop.com/tinyops-studio-llc/ai-workflow-automation-audit/
+- USD 499: Make Workflow Rescue Sprint. Repair one existing Make path, up to 20 modules. Purchase: https://whop.com/tinyops-studio-llc/make-workflow-rescue-sprint/
+- USD 1,000: Workflow Automation Sprint. Build one defined workflow with up to two connected tools. Purchase: https://whop.com/tinyops-studio-llc/ai-agent-workflow-sprint/
+
+## Safety and scope
+
+Initial intake must use public, synthetic, or fully sanitized material. Do not send passwords, OTPs, API keys, cookies, production credentials, payment-card data, wallet secrets, KYC/tax documents, or unredacted customer data through public pages. Exact inclusions, exclusions, and delivery timing are stated on each Whop product page. No revenue, performance, model-accuracy, legal, compliance, or security-certification guarantee is offered.

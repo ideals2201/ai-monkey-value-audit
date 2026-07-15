@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "updated": "2026-07-16",
+  "provider": "TinyOps Studio LLC",
+  "catalog_url": "https://ideals2201.github.io/ai-monkey-value-audit/services.html",
+  "currency": "USD",
+  "safety": {
+    "initial_intake": "Use public, synthetic, or fully sanitized material only.",
+    "never_send_publicly": ["passwords", "OTPs", "API keys", "cookies", "production credentials", "payment-card data", "wallet secrets", "KYC or tax documents", "unredacted customer data"]
+  },
+  "offers": [
+    {
+      "name": "n8n Workflow Help - Quick Triage",
+      "price": 49,
+      "delivery": "within two business days after complete intake",
+      "scope": "one bounded workflow issue; likely root problem or highest-risk assumption; trigger-to-output map; first recommended fix or test; field, error, retry, and next-step notes",
+      "purchase_url": "https://whop.com/tinyops-studio-llc/quick-workflow-triage/"
+    },
+    {
+      "name": "Make Workflow Kickoff Review",
+      "price": 149,
+      "delivery": "within two business days after complete intake",
+      "scope": "one Make.com workflow; process and data-flow map; module sequence; field, dedupe, and error notes; happy-path and one failure-path acceptance tests; written answers",
+      "purchase_url": "https://whop.com/tinyops-studio-llc/make-workflow-kickoff-review/"
+    },
+    {
+      "name": "AI Workflow Automation Audit",
+      "price": 149,
+      "delivery": "within three business days after complete intake",
+      "scope": "up to three workflows; current-state map; bottleneck analysis; ROI-ranked opportunities; tool recommendations; one implementation-ready specification; 30-day roadmap",
+      "purchase_url": "https://whop.com/tinyops-studio-llc/ai-workflow-automation-audit/"
+    },
+    {
+      "name": "Make Workflow Rescue Sprint",
+      "price": 499,
+      "delivery": "within five business days after complete intake and agreed access",
+      "scope": "one existing Make scenario, one trigger-to-destination path, up to 20 modules; repair, dedupe or idempotency protection, visible error handling, two tests, evidence, handoff notes, one correction round",
+      "purchase_url": "https://whop.com/tinyops-studio-llc/make-workflow-rescue-sprint/"
+    },
+    {
+      "name": "n8n, Make, Zapier & AI Workflow Automation Sprint",
+      "price": 1000,
+      "delivery": "targeted within seven business days after scope, access, samples, and acceptance criteria are confirmed",
+      "scope": "one defined workflow with up to two connected tools; configurable logic; exception and human-review paths; focused tests; deployment notes; maintainable handoff",
+      "purchase_url": "https://whop.com/tinyops-studio-llc/ai-agent-workflow-sprint/"
+    },
+    {
+      "name": "Shopify Flow Query Triage",
+      "price": 49,
+      "delivery": "within one business day after complete intake",
+      "scope": "one scheduled Shopify Flow order query; corrected query and sort; bounded result cap; workflow map; stale-state re-check; three tests; handoff note",
+      "purchase_url": "https://whop.com/tinyops-studio-llc/shopify-flow-query-triage/"
+    },
+    {
+      "name": "Etsy Workflow Automation Audit",
+      "price": 149,
+      "delivery": "within two business days after complete intake",
+      "scope": "one Etsy workflow; process and bottleneck map; policy boundary memo; field map; approval gates; exception and retry rules; implementation-ready specification",
+      "purchase_url": "https://whop.com/tinyops-studio-llc/etsy-workflow-automation-audit/"
+    }
+  ]
+}
