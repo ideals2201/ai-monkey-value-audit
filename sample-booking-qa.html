@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A complete synthetic sample of the fixed USD 10 workflow reliability QA deliverable.">
+  <title>Sample Deliverable — Booking Workflow QA</title>
+  <style>
+    :root{color-scheme:light;font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#172033;background:#f5f7fb}
+    *{box-sizing:border-box}body{margin:0}main{max-width:980px;margin:0 auto;padding:42px 20px 70px}
+    .sheet{background:#fff;border:1px solid #dfe5ef;border-radius:20px;padding:clamp(22px,5vw,50px);box-shadow:0 18px 60px #1b315214}
+    .eyebrow{color:#3159d9;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem}
+    h1{font-size:clamp(2rem,6vw,3.8rem);line-height:1.02;letter-spacing:-.045em;margin:.35em 0 .28em}h2{margin-top:34px}h3{margin-bottom:.25em}
+    p,li{line-height:1.58}.lead{font-size:1.12rem;color:#4a5870;max-width:760px}.note{background:#eef2ff;border-left:4px solid #3159d9;padding:13px 16px;border-radius:8px}
+    .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:9px;margin:18px 0}.flow div{padding:13px;border:1px solid #dfe5ef;border-radius:11px;background:#fafbfe;font-weight:700}
+    table{width:100%;border-collapse:collapse;margin:12px 0 24px}th,td{text-align:left;vertical-align:top;border-bottom:1px solid #dfe5ef;padding:11px 9px;line-height:1.45}th{color:#53617a;font-size:.86rem;text-transform:uppercase;letter-spacing:.04em}
+    .high{color:#a33b18;font-weight:800}.pass{color:#17754a;font-weight:800}.fail{color:#a33b18;font-weight:800}.button{display:inline-block;margin-top:20px;padding:13px 17px;border-radius:11px;background:#3159d9;color:#fff;text-decoration:none;font-weight:800}
+    code{background:#eef1f6;padding:.12em .35em;border-radius:5px}.fine{color:#66738a;font-size:.91rem}
+  </style>
+</head>
+<body><main><article class="sheet">
+  <div class="eyebrow">Complete sample deliverable · synthetic data only</div>
+  <h1>Booking workflow reliability QA</h1>
+  <p class="lead">This is the level and structure delivered for the fixed USD 10 trial. The example is synthetic: no client workflow, credentials, recordings, or customer data were used.</p>
+  <p class="note"><strong>Decision: HOLD before client handoff.</strong> The happy path works, but a retry after a slow calendar response can create two appointments for one caller. Fix the idempotency boundary, then rerun the three acceptance tests below.</p>
+
+  <h2>1. Intended state contract</h2>
+  <div class="flow">
+    <div>1 · Call intent</div><div>2 · Normalize request</div><div>3 · Check availability</div><div>4 · Reserve slot</div><div>5 · Confirm booking</div><div>6 · Log + notify</div>
+  </div>
+  <table>
+    <thead><tr><th>Boundary</th><th>Required input</th><th>Success evidence</th><th>Stable key</th></tr></thead>
+    <tbody>
+      <tr><td>Voice → workflow</td><td>service, requested time, contact channel</td><td>validated request envelope</td><td><code>conversation_id</code></td></tr>
+      <tr><td>Workflow → calendar</td><td>normalized UTC interval, service duration</td><td>one provider event ID</td><td><code>booking_request_id</code></td></tr>
+      <tr><td>Calendar → confirmation</td><td>event ID plus committed status</td><td>one customer confirmation</td><td><code>event_id</code></td></tr>
+      <tr><td>Confirmation → CRM/log</td><td>event ID, caller reference, audit timestamps</td><td>record points to the same event</td><td><code>event_id</code></td></tr>
+    </tbody>
+  </table>
+
+  <h2>2. Failure-path audit</h2>
+  <table>
+    <thead><tr><th>Priority</th><th>Failure</th><th>Current risk</th><th>Required behavior</th></tr></thead>
+    <tbody>
+      <tr><td class="high">P0</td><td>Calendar call times out after the provider created the event.</td><td>Workflow retries and creates a duplicate.</td><td>Reuse one idempotency key; reconcile by key before creating again.</td></tr>
+      <tr><td>P1</td><td>Two callers request the final slot concurrently.</td><td>Both availability checks can return free.</td><td>Make reservation atomic or recheck during the write transaction.</td></tr>
+      <tr><td>P1</td><td>Event created but CRM write fails.</td><td>Caller is booked, team dashboard says unbooked.</td><td>Persist the event ID in an outbox and replay the CRM update safely.</td></tr>
+      <tr><td>P2</td><td>Email/phone is missing or malformed.</td><td>Booking may succeed without a usable confirmation route.</td><td>Return a structured clarification request before reserving.</td></tr>
+      <tr><td>P2</td><td>Cancellation arrives while confirmation is queued.</td><td>Customer can receive a stale “confirmed” message.</td><td>Read the latest booking state immediately before notification.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>3. Synthetic acceptance tests</h2>
+  <table>
+    <thead><tr><th>Test</th><th>Stimulus</th><th>Expected evidence</th><th>Sample result</th></tr></thead>
+    <tbody>
+      <tr><td>Retry idempotency</td><td>Send the same request twice; first provider response is delayed.</td><td>One calendar event, one CRM record, one confirmation.</td><td class="fail">FAIL — two event IDs observed</td></tr>
+      <tr><td>Concurrent slot claim</td><td>Submit two different callers for one remaining slot.</td><td>One confirmed; one receives alternate-slot response.</td><td class="pass">PASS</td></tr>
+      <tr><td>Partial-write recovery</td><td>Force CRM write to fail after calendar success.</td><td>Calendar event retained; queued replay links CRM to same event.</td><td class="pass">PASS</td></tr>
+    </tbody>
+  </table>
+
+  <h2>4. Highest-priority fix</h2>
+  <p>Generate <code>booking_request_id = SHA256(conversation_id + normalized_slot + service)</code> before any external write. Store it with status <code>pending</code>, pass it through the calendar metadata, and on every retry query by that key before creating an event. Promote the record to <code>committed</code> only after receiving one provider event ID. Confirmation and CRM steps must consume the committed record, not the original webhook payload.</p>
+
+  <h2>5. Re-test gate</h2>
+  <ul>
+    <li>Retry idempotency test passes five consecutive runs.</li>
+    <li>Exactly one provider event ID exists for each <code>booking_request_id</code>.</li>
+    <li>CRM and notification records reference that same event ID.</li>
+    <li>No production or real customer data is required for verification.</li>
+  </ul>
+
+  <p class="fine">A paid review is tailored to one supplied redacted journey. Findings are evidence-based and limited to the provided flow; no claim is made about systems that were not inspected.</p>
+  <a class="button" href="index.html">Return to the fixed USD 10 audit</a>
+</article></main></body>
+</html>
