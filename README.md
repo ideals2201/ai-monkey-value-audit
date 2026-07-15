@@ -23,6 +23,10 @@ The full sample shows the actual structure: a GO / HOLD / NO-GO decision, state 
 - Public scope confirmation: GitHub issue form (public or synthetic material only)
 - Payment after scope confirmation: <https://paypal.me/binhai2001/10>
 
+## Deeper workflow triage
+
+The separate [USD 49 Quick Workflow Triage on Whop](https://whop.com/joined/tinyops-studio-llc/products/quick-workflow-triage/) accepts one sanitized workflow plus 2–3 sanitized failure examples. It returns prioritized reliability findings, three acceptance tests, and one first fix. This is a separate scope and is not required for the USD 10 audit.
+
 ## Public-safe boundary
 
 Do not send passwords, OTPs, API keys, cookies, production access, private customer records, payment-card data, wallet secrets, KYC/tax documents, private screenshots, or unredacted workflow exports.
