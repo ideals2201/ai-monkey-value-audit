@@ -8,7 +8,22 @@
     "initial_intake": "Use public, synthetic, or fully sanitized material only.",
     "never_send_publicly": ["passwords", "OTPs", "API keys", "cookies", "production credentials", "payment-card data", "wallet secrets", "KYC or tax documents", "unredacted customer data"]
   },
+  "free_resources": [
+    {
+      "name": "Workflow Automation ROI Calculator",
+      "price": 0,
+      "scope": "browser-based directional estimate using time, labor-cost, tool-cost, and implementation-cost assumptions; no production data required",
+      "url": "https://tinyopsstudio.com/automation-roi-calculator"
+    }
+  ],
   "offers": [
+    {
+      "name": "n8n, Make, Zapier & AI Workflow Automation Starter Kit",
+      "price": 29,
+      "delivery": "instant self-serve access after purchase",
+      "scope": "planning guide and ROI calculator; audit checklist; prompt library; tool-selection cheat sheet; reusable workflow patterns; CSV templates; launch and human-review checklist; no setup or custom implementation",
+      "purchase_url": "https://whop.com/tinyops-studio-llc/ai-automation-starter-kit-94/"
+    },
     {
       "name": "n8n Workflow Help - Quick Triage",
       "price": 49,
