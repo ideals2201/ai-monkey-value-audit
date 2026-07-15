@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Prototype déterministe de devis plomberie/CVC: correspondances catalogue exactes, articles inconnus bloqués, calculs vérifiables.">
+  <title>Prototype devis plomberie/CVC — correspondance exacte</title>
+  <style>
+    :root{font-family:Inter,system-ui,sans-serif;color:#172033;background:#f4f7fb}*{box-sizing:border-box}body{margin:0}main{max-width:980px;margin:auto;padding:36px 18px}.card{background:#fff;border:1px solid #dce3ee;border-radius:18px;padding:clamp(20px,4vw,40px);box-shadow:0 16px 50px #21345214}h1{margin:.2em 0;font-size:clamp(2rem,5vw,3.6rem);line-height:1}.lead{color:#536078;line-height:1.55}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:24px 0}label{display:block;font-weight:700;margin-bottom:7px}textarea,input{width:100%;padding:12px;border:1px solid #bfc9d8;border-radius:10px;font:inherit}textarea{min-height:120px}button{border:0;border-radius:10px;padding:13px 18px;background:#3159d9;color:white;font-weight:800;cursor:pointer}.result{margin-top:22px;border-top:1px solid #e1e6ef;padding-top:20px}.ok,.blocked{padding:12px;border-radius:10px;margin:8px 0}.ok{background:#edfbf1;color:#175e30}.blocked{background:#fff0f0;color:#982c2c}table{border-collapse:collapse;width:100%;margin:14px 0}th,td{text-align:left;padding:9px;border-bottom:1px solid #e4e8ef}.money{text-align:right}.fine{font-size:.9rem;color:#657188;line-height:1.5}.pill{display:inline-block;background:#eef2ff;color:#2947a3;border-radius:99px;padding:7px 11px;font-weight:800;font-size:.85rem}
+  </style>
+</head>
+<body><main><section class="card">
+  <span class="pill">Prototype public · données synthétiques</span>
+  <h1>Devis sans référence inventée.</h1>
+  <p class="lead">Ce prototype accepte uniquement des références présentes exactement dans le mini-catalogue de démonstration. Toute ligne inconnue bloque le devis au lieu d'inventer un article ou un prix.</p>
+  <div class="grid">
+    <div><label for="items">Références et quantités</label><textarea id="items">GETAZ-P100 x2&#10;NUSS-VALVE-15 x1</textarea><p class="fine">Une ligne par article: <code>RÉFÉRENCE xQUANTITÉ</code>.</p></div>
+    <div><label for="hours">Main-d'œuvre (heures à CHF 95)</label><input id="hours" type="number" min="0" step="0.25" value="2"><label for="travel" style="margin-top:14px">Déplacement (CHF)</label><input id="travel" type="number" min="0" step="0.05" value="45"></div>
+  </div>
+  <button id="build">Générer le contrôle et le devis</button>
+  <div id="result" class="result" aria-live="polite"></div>
+  <p class="fine">Règles: correspondance exacte seulement; marge matériaux 15%; TVA suisse 8,1%; arrondi monétaire à 0,05 CHF. Le catalogue réel doit être importé depuis les sources fournisseurs autorisées et versionné. Aucun identifiant fournisseur ni donnée client n'est requis pour évaluer ce prototype.</p>
+</section></main>
+<script>
+const catalog={
+  "GETAZ-P100":{supplier:"Getaz Miauton",label:"Pompe démo P100",price:120},
+  "SANITAS-S200":{supplier:"Sanitas Troesch",label:"Lavabo démo S200",price:210},
+  "NUSS-VALVE-15":{supplier:"Nussbaum",label:"Vanne démo 15 mm",price:38.5}
+};
+const money=n=>(Math.round(n*20)/20).toFixed(2);
+function parse(text){return text.split(/\n+/).map(s=>s.trim()).filter(Boolean).map(line=>{const m=line.match(/^([A-Z0-9-]+)\s+x(\d+)$/i);return m?{ref:m[1].toUpperCase(),qty:Number(m[2])}:{raw:line,error:"Format invalide"}})}
+function build(){
+  const rows=parse(document.querySelector('#items').value), unknown=rows.filter(r=>r.error||!catalog[r.ref]);
+  const out=document.querySelector('#result');
+  if(unknown.length){out.innerHTML='<div class="blocked"><strong>DEVIS BLOQUÉ</strong><br>'+unknown.map(r=>(r.ref||r.raw)+' — '+(r.error||'référence absente du catalogue')).join('<br>')+'<br><br>Aucun prix de remplacement n’a été inventé.</div>';return}
+  const material=rows.reduce((s,r)=>s+catalog[r.ref].price*r.qty,0), materialsWithMargin=material*1.15;
+  const labour=Math.max(0,Number(document.querySelector('#hours').value)||0)*95, travel=Math.max(0,Number(document.querySelector('#travel').value)||0);
+  const subtotal=materialsWithMargin+labour+travel, vat=subtotal*.081, total=subtotal+vat;
+  out.innerHTML='<div class="ok"><strong>VALIDATION RÉUSSIE</strong> — toutes les références correspondent exactement au catalogue version DEMO-2026-07-15.</div><table><thead><tr><th>Référence</th><th>Fournisseur / article</th><th>Qté</th><th class="money">Prix net</th></tr></thead><tbody>'+rows.map(r=>{const p=catalog[r.ref];return `<tr><td>${r.ref}</td><td>${p.supplier} — ${p.label}</td><td>${r.qty}</td><td class="money">CHF ${money(p.price*r.qty)}</td></tr>`}).join('')+'</tbody></table><table><tr><td>Matériaux + marge 15%</td><td class="money">CHF '+money(materialsWithMargin)+'</td></tr><tr><td>Main-d’œuvre</td><td class="money">CHF '+money(labour)+'</td></tr><tr><td>Déplacement</td><td class="money">CHF '+money(travel)+'</td></tr><tr><td>TVA 8,1%</td><td class="money">CHF '+money(vat)+'</td></tr><tr><th>Total TTC</th><th class="money">CHF '+money(total)+'</th></tr></table>';
+}
+document.querySelector('#build').addEventListener('click',build);build();
+</script></body></html>
