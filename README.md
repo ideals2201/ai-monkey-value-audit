@@ -6,6 +6,8 @@ A small, fixed-price review for one public opportunity or one redacted automatio
 
 **Public scope request:** <https://github.com/ideals2201/ai-monkey-value-audit/issues/new/choose>
 
+**Fixed-scope service catalog:** <https://ideals2201.github.io/ai-monkey-value-audit/services.html>
+
 ## See the deliverable before buying
 
 - [Complete synthetic booking-workflow QA sample](https://ideals2201.github.io/ai-monkey-value-audit/sample-booking-qa.html)
