@@ -25,7 +25,7 @@ The full sample shows the actual structure: a GO / HOLD / NO-GO decision, state 
 
 ## Deeper workflow triage
 
-The separate [USD 49 Quick Workflow Triage on Whop](https://whop.com/joined/tinyops-studio-llc/products/quick-workflow-triage/) accepts one sanitized workflow plus 2–3 sanitized failure examples. It returns prioritized reliability findings, three acceptance tests, and one first fix. This is a separate scope and is not required for the USD 10 audit.
+The separate [USD 49 Quick Workflow Triage](https://ideals2201.github.io/ai-monkey-value-audit/workflow-triage.html) accepts one sanitized workflow plus 2–3 sanitized failure examples. It returns prioritized reliability findings, three acceptance tests, and one first fix, with direct purchase through Whop. This is a separate scope and is not required for the USD 10 audit.
 
 ## Public-safe boundary
 
