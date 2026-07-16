@@ -1,7 +1,8 @@
 {
   "schema_version": "1.0",
-  "updated": "2026-07-16",
+  "updated": "2026-07-17",
   "provider": "TinyOps Studio LLC",
+  "provider_email": "zhangmacmini@gmail.com",
   "catalog_url": "https://ideals2201.github.io/ai-monkey-value-audit/services.html",
   "currency": "USD",
   "safety": {
@@ -17,6 +18,25 @@
     }
   ],
   "offers": [
+    {
+      "name": "Public-Source Value Audit",
+      "price": 10,
+      "delivery": "within 24 hours after scope confirmation and complete intake",
+      "scope": "one public earning opportunity or automation route; current official evidence; GO, HOLD, or NO-GO decision; one concrete next action",
+      "scope_url": "https://ideals2201.github.io/ai-monkey-value-audit/",
+      "intake_email": "zhangmacmini@gmail.com",
+      "payment_url": "https://paypal.me/binhai2001/10"
+    },
+    {
+      "name": "Automation Incident Evidence Trial",
+      "price": 10,
+      "delivery": "within 24 hours after scope confirmation and complete intake",
+      "scope": "one fully synthetic or sanitized automation incident; expected-versus-observed timeline; evidence and inference separation; retry or idempotency risks; acceptance checklist",
+      "scope_url": "https://ideals2201.github.io/ai-monkey-value-audit/automation-incident-evidence.html",
+      "sample_url": "https://ideals2201.github.io/ai-monkey-value-audit/automation-incident-evidence-sample.html",
+      "intake_email": "zhangmacmini@gmail.com",
+      "payment_url": "https://paypal.me/binhai2001/10"
+    },
     {
       "name": "n8n, Make, Zapier & AI Workflow Automation Starter Kit",
       "price": 29,
