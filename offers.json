@@ -59,6 +59,15 @@
       "payment_url": "https://paypal.me/binhai2001/25"
     },
     {
+      "name": "Support Inbox Triage Starter",
+      "price": 12,
+      "delivery": "instant marketplace download after purchase",
+      "scope": "one importable n8n workflow JSON; sample support-ticket webhook payload; setup README; workflow diagram; deterministic category, priority, SLA, next-step, and reply-draft output; no credentials or customer data",
+      "purchase_url": "https://automationworkflows.io/product/support-inbox-triage-starter-tinyops",
+      "marketplace": "Automation Workflows",
+      "marketplace_payout_note": "seller keeps 85%; marketplace states payouts run once balance reaches USD 10 via Stripe Connect, PayPal, Wise, or bank transfer"
+    },
+    {
       "name": "n8n, Make, Zapier & AI Workflow Automation Starter Kit",
       "price": 29,
       "delivery": "instant self-serve access after purchase",

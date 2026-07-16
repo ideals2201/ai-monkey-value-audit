@@ -8,6 +8,8 @@ A small, fixed-price review for one public opportunity or one redacted automatio
 
 **USD 25 n8n Reliability Harness Customization:** <https://ideals2201.github.io/ai-monkey-value-audit/n8n-reliability-harness-customization.html>
 
+**USD 12 instant-download Support Inbox Triage Starter:** <https://automationworkflows.io/product/support-inbox-triage-starter-tinyops>
+
 **Public scope request:** <https://github.com/ideals2201/ai-monkey-value-audit/issues/new/choose>
 
 **Fixed-scope service catalog:** <https://ideals2201.github.io/ai-monkey-value-audit/services.html>
