@@ -64,6 +64,15 @@
       "purchase_url": "https://whop.com/tinyops-studio-llc/quick-workflow-triage/"
     },
     {
+      "name": "Pre-Migration Automation Architecture Audit",
+      "price": 125,
+      "currency": "EUR",
+      "delivery": "within two business days after scope confirmation and complete sanitized intake",
+      "scope": "one sanitized n8n, CRM, messaging, enrichment, or LLM automation stack; boundary map; OAuth, pagination, polling, retry, idempotency, and recovery review; dry-run acceptance plan; ranked risk register; one phase-one specification; no implementation or production access",
+      "scope_url": "https://ideals2201.github.io/ai-monkey-value-audit/pre-migration-architecture-audit.html",
+      "intake_email": "zhangmacmini@gmail.com"
+    },
+    {
       "name": "Make Workflow Kickoff Review",
       "price": 149,
       "delivery": "within two business days after complete intake",

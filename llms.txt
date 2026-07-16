@@ -8,6 +8,7 @@ Full synthetic QA sample: https://ideals2201.github.io/ai-monkey-value-audit/sam
 Public-source USD 10 audit: https://ideals2201.github.io/ai-monkey-value-audit/
 Detailed USD 149 automation audit: https://ideals2201.github.io/ai-monkey-value-audit/automation-audit.html
 Automation incident evidence USD 10 trial: https://ideals2201.github.io/ai-monkey-value-audit/automation-incident-evidence.html
+Pre-migration architecture audit EUR 125: https://ideals2201.github.io/ai-monkey-value-audit/pre-migration-architecture-audit.html
 Scope confirmation email: zhangmacmini@gmail.com
 
 ## Affiliate program
@@ -24,6 +25,7 @@ Scope confirmation email: zhangmacmini@gmail.com
 - USD 10: Automation Incident Evidence Trial. One fully synthetic or sanitized incident; expected-versus-observed timeline, evidence gaps, retry/idempotency risks, and acceptance checklist within 24 hours after complete intake. Scope: https://ideals2201.github.io/ai-monkey-value-audit/automation-incident-evidence.html. Sample: https://ideals2201.github.io/ai-monkey-value-audit/automation-incident-evidence-sample.html. Confirm scope: mailto:zhangmacmini@gmail.com.
 - USD 29: n8n, Make, Zapier & AI Workflow Automation Starter Kit. Self-serve planning guide, checklists, prompt library, patterns, templates, and launch review. Purchase: https://whop.com/tinyops-studio-llc/ai-automation-starter-kit-94/
 - USD 49: n8n Workflow Help - Quick Triage. One bounded workflow issue; written delivery within two business days. Purchase: https://whop.com/tinyops-studio-llc/quick-workflow-triage/
+- EUR 125: Pre-Migration Automation Architecture Audit. One sanitized n8n, CRM, messaging, enrichment, or LLM stack; boundary map, reliability review, dry-run acceptance plan, ranked risks, and one phase-one specification. No implementation or production access. Scope: https://ideals2201.github.io/ai-monkey-value-audit/pre-migration-architecture-audit.html. Confirm scope: mailto:zhangmacmini@gmail.com.
 - USD 149: Make Workflow Kickoff Review. Plan one Make.com workflow before implementation. Purchase: https://whop.com/tinyops-studio-llc/make-workflow-kickoff-review/
 - USD 149: AI Workflow Automation Audit. Review up to three workflows and receive one implementation-ready specification. Purchase: https://whop.com/tinyops-studio-llc/ai-workflow-automation-audit/
 - USD 499: Make Workflow Rescue Sprint. Repair one existing Make path, up to 20 modules. Purchase: https://whop.com/tinyops-studio-llc/make-workflow-rescue-sprint/
