@@ -1,0 +1,64 @@
+name: Request a USD 25 n8n harness customization
+description: Confirm a public-safe scope before paying for a credential-free n8n reliability harness.
+title: "n8n harness scope: "
+labels:
+  - n8n-harness-request
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is a public form. Use only synthetic or fully sanitized information. The fixed price is USD 25 and payment is requested only after the scope is explicitly confirmed.
+
+        **Never include credentials, tokens, cookies, production URLs containing secrets, real customer or candidate data, private screenshots, payment data, or unredacted workflow exports.**
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Workflow purpose
+      description: Describe one bounded workflow using public, synthetic, or fully sanitized terms.
+      placeholder: Normalize a synthetic form submission and decide whether to create, update, or quarantine a record.
+    validations:
+      required: true
+  - type: textarea
+    id: inputs
+    attributes:
+      label: Synthetic input contract
+      description: List field names, types, and validation rules. Use invented example values only.
+      placeholder: "submission_id: string; phone: invented string; consent: boolean"
+    validations:
+      required: true
+  - type: textarea
+    id: outputs
+    attributes:
+      label: Expected outputs
+      description: State the deterministic result or state for valid and invalid inputs.
+      placeholder: Valid, duplicate, retryable_error, or quarantine with a reason code.
+    validations:
+      required: true
+  - type: textarea
+    id: fixtures
+    attributes:
+      label: Priority fixtures
+      description: List up to six synthetic success, replay, validation, or failure cases.
+      placeholder: "1. Valid first submission\n2. Exact replay\n3. Missing consent\n4. Retry after rate limit"
+    validations:
+      required: true
+  - type: dropdown
+    id: source
+    attributes:
+      label: Sanitized source available
+      options:
+        - Data contract only; no workflow export
+        - Fully sanitized n8n export with no credentials or identifying data
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Scope and safety confirmation
+      options:
+        - label: I confirm this issue contains only public, synthetic, or fully sanitized information and no credentials or personal/customer data.
+          required: true
+        - label: I understand the USD 25 deliverable is one inactive credential-free n8n JSON, up to six fixtures, and a short run/acceptance note; it does not include deployment or external calls.
+          required: true
+        - label: I understand payment is requested only after scope confirmation, and opening this issue is not itself a purchase.
+          required: true

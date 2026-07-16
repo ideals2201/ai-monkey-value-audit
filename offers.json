@@ -36,7 +36,7 @@
       "delivery": "within 24 hours after scope confirmation and complete intake",
       "scope": "one public earning opportunity or automation route; current official evidence; GO, HOLD, or NO-GO decision; one concrete next action",
       "scope_url": "https://ideals2201.github.io/ai-monkey-value-audit/",
-      "intake_email": "zhangmacmini@gmail.com",
+      "intake_url": "https://github.com/ideals2201/ai-monkey-value-audit/issues/new?template=audit-request.yml",
       "payment_url": "https://paypal.me/binhai2001/10"
     },
     {
@@ -46,7 +46,7 @@
       "scope": "one fully synthetic or sanitized automation incident; expected-versus-observed timeline; evidence and inference separation; retry or idempotency risks; acceptance checklist",
       "scope_url": "https://ideals2201.github.io/ai-monkey-value-audit/automation-incident-evidence.html",
       "sample_url": "https://ideals2201.github.io/ai-monkey-value-audit/automation-incident-evidence-sample.html",
-      "intake_email": "zhangmacmini@gmail.com",
+      "intake_url": "https://github.com/ideals2201/ai-monkey-value-audit/issues/new?template=audit-request.yml",
       "payment_url": "https://paypal.me/binhai2001/10"
     },
     {
@@ -55,7 +55,7 @@
       "delivery": "within two business days after public scope confirmation, payment, and complete sanitized intake",
       "scope": "one sanitized workflow export or data contract; one customized credential-free inactive n8n JSON; up to six synthetic fixtures; short run and acceptance note; no deployment, production access, external calls, or provider approval",
       "scope_url": "https://ideals2201.github.io/ai-monkey-value-audit/n8n-reliability-harness-customization.html",
-      "intake_url": "https://github.com/ideals2201/ai-monkey-value-audit/issues/new?title=USD%2025%20n8n%20harness%20scope%20request",
+      "intake_url": "https://github.com/ideals2201/ai-monkey-value-audit/issues/new?template=n8n-harness-customization.yml",
       "payment_url": "https://paypal.me/binhai2001/25"
     },
     {
@@ -79,7 +79,7 @@
       "delivery": "within two business days after scope confirmation and complete sanitized intake",
       "scope": "one sanitized n8n, CRM, messaging, enrichment, or LLM automation stack; boundary map; OAuth, pagination, polling, retry, idempotency, and recovery review; dry-run acceptance plan; ranked risk register; one phase-one specification; no implementation or production access",
       "scope_url": "https://ideals2201.github.io/ai-monkey-value-audit/pre-migration-architecture-audit.html",
-      "intake_email": "zhangmacmini@gmail.com"
+      "intake_url": "https://github.com/ideals2201/ai-monkey-value-audit/issues/new/choose"
     },
     {
       "name": "Make Workflow Kickoff Review",
