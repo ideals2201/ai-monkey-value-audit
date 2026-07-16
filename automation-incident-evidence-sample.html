@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A fully synthetic example of a client-readable automation incident evidence note for an n8n, Make, CRM, email, or AI workflow.">
+  <link rel="canonical" href="https://ideals2201.github.io/ai-monkey-value-audit/automation-incident-evidence-sample.html">
+  <title>Synthetic Automation Incident Evidence Sample</title>
+  <style>
+    :root{font-family:Inter,system-ui,sans-serif;color:#172033;background:#f5f7fb}*{box-sizing:border-box}body{margin:0}main{max-width:960px;margin:auto;padding:42px 22px}.hero,.panel{background:#fff;border:1px solid #dfe5ef;border-radius:18px;padding:28px;margin-bottom:16px}h1{font-size:clamp(2rem,6vw,3.8rem);line-height:1.05;margin:.2em 0}.lead,.fine{color:#5b687d;line-height:1.6}.tag{display:inline-block;padding:8px 12px;border-radius:999px;background:#ecfdf3;color:#17633a;font-weight:800}.alert{border-left:5px solid #e69022}.fact{color:#17633a;font-weight:750}.inference{color:#9a5b08;font-weight:750}.gap{color:#9c2f36;font-weight:750}table{width:100%;border-collapse:collapse;margin-top:12px}th,td{text-align:left;vertical-align:top;border-bottom:1px solid #e5e9f0;padding:12px 9px;line-height:1.45}th{color:#4d5a70}.code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#f1f4f8;padding:2px 5px;border-radius:5px}.button{display:inline-block;margin-top:16px;padding:12px 16px;border-radius:10px;background:#3159d9;color:#fff;text-decoration:none;font-weight:750}li{line-height:1.6}@media(max-width:680px){table,thead,tbody,tr,th,td{display:block}thead{display:none}td{padding:9px 0}tr{padding:10px 0;border-bottom:1px solid #e5e9f0}td{border:0}}
+  </style>
+</head>
+<body><main>
+  <section class="hero">
+    <span class="tag">Fully synthetic example — no customer or production data</span>
+    <h1>Duplicate CRM follow-up after an AI-assisted lead review</h1>
+    <p class="lead">A sample of the evidence note an agency can hand to a non-technical client after an unexpected automation action.</p>
+    <p class="fine">Example systems: form intake → workflow engine → AI classification → CRM → email provider. All names, IDs, timestamps, payloads, and outcomes below are invented.</p>
+  </section>
+
+  <section class="panel alert">
+    <h2>Client summary</h2>
+    <p>At 10:03 UTC, one synthetic form submission started two workflow executions. Both executions classified the lead as qualified and each created a follow-up email. The available evidence proves duplicate execution and duplicate external action. It does <strong>not</strong> yet prove why the trigger was delivered twice.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Expected versus observed</h2>
+    <table><thead><tr><th>Expected</th><th>Observed</th><th>Impact</th></tr></thead><tbody><tr><td>One submission creates one workflow execution and one follow-up.</td><td>One synthetic submission ID appeared in two executions, producing two provider message IDs.</td><td>The recipient received a duplicate follow-up three minutes apart.</td></tr></tbody></table>
+  </section>
+
+  <section class="panel">
+    <h2>Evidence timeline</h2>
+    <table>
+      <thead><tr><th>Time (UTC)</th><th>Stage</th><th>Evidence</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>10:03:11</td><td>Trigger</td><td>Execution <span class="code">run_SYN_1041</span> records form ID <span class="code">lead_SYN_77</span>.</td><td class="fact">Confirmed fact</td></tr>
+        <tr><td>10:03:12</td><td>Transformation</td><td>Email lowercased; company field normalized; no customer value retained in this sample.</td><td class="fact">Confirmed fact</td></tr>
+        <tr><td>10:03:14</td><td>AI decision</td><td>Classifier returned <span class="code">qualified=true</span>, confidence <span class="code">0.82</span>.</td><td class="fact">Confirmed fact</td></tr>
+        <tr><td>10:03:16</td><td>External action</td><td>Email provider accepted message <span class="code">msg_SYN_A</span>.</td><td class="fact">Confirmed fact</td></tr>
+        <tr><td>10:06:02</td><td>Trigger</td><td>Execution <span class="code">run_SYN_1042</span> records the same form ID <span class="code">lead_SYN_77</span>.</td><td class="fact">Confirmed fact</td></tr>
+        <tr><td>10:06:07</td><td>External action</td><td>Email provider accepted message <span class="code">msg_SYN_B</span>.</td><td class="fact">Confirmed fact</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="panel">
+    <h2>Facts, inference, and missing evidence</h2>
+    <ul>
+      <li><span class="fact">Fact:</span> the same synthetic business key appears in two executions.</li>
+      <li><span class="fact">Fact:</span> both executions reached the external email action and received different provider IDs.</li>
+      <li><span class="inference">Inference:</span> the source platform may have retried delivery, or a user may have submitted twice. Current evidence cannot distinguish these paths.</li>
+      <li><span class="gap">Gap:</span> no source request ID, delivery-attempt counter, or raw webhook-header hash was retained.</li>
+      <li><span class="gap">Gap:</span> no idempotency decision was logged before the external action.</li>
+    </ul>
+  </section>
+
+  <section class="panel">
+    <h2>One implementation-ready control</h2>
+    <p>Before CRM or email actions, create an idempotency key from <span class="code">source + submission_id + action_type</span>. Store it with a 24-hour uniqueness window. If the key already exists, stop the second path and log <span class="code">duplicate_suppressed=true</span>, the first execution ID, and the attempted timestamp.</p>
+    <p class="fine">Acceptance check: replay the same synthetic submission twice. Exactly one provider message ID should be created; the second execution must end at the idempotency gate with a visible suppression record.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Boundary</h2>
+    <p>This example demonstrates evidence packaging and control design. It is not production forensics, a compliance assessment, a legal conclusion, or proof of a specific root cause.</p>
+    <a class="button" href="automation-incident-evidence.html">Review the paid evidence-pack scope</a>
+  </section>
+</main></body>
+</html>
