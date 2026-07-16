@@ -18,6 +18,7 @@ body:
       description: Choose the closest scope.
       options:
         - Public opportunity / bounty / grant / credit
+        - Synthetic or sanitized automation incident evidence
         - Redacted workflow reliability QA
         - Synthetic prototype or acceptance-test review
     validations:
@@ -56,6 +57,7 @@ body:
       label: Preferred deliverable
       options:
         - GO / HOLD / NO-GO audit with evidence and next action
+        - Expected-versus-observed incident timeline, evidence gaps, and acceptance checklist
         - State contract, failure map, 3 tests, and 1 prioritized fix
         - Public-source eligibility, competition, and payout-risk check
     validations:

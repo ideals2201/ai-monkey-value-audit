@@ -4,5 +4,5 @@ contact_links:
     url: https://ideals2201.github.io/ai-monkey-value-audit/sample-booking-qa.html
     about: Review the report structure before opening a public audit request.
   - name: Confirm scope privately by email
-    url: mailto:binhaitjzhda@gmail.com?subject=USD%2010%20public-safe%20audit%20scope
+    url: mailto:zhangmacmini@gmail.com?subject=USD%2010%20public-safe%20audit%20scope
     about: Use email only when the scope cannot be described publicly; never send secrets or private customer data.
