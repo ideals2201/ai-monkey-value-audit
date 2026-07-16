@@ -4,6 +4,8 @@ A small, fixed-price review for one public opportunity or one redacted automatio
 
 **Live offer:** <https://ideals2201.github.io/ai-monkey-value-audit/>
 
+**USD 10 Automation Incident Evidence Trial:** <https://ideals2201.github.io/ai-monkey-value-audit/automation-incident-evidence.html>
+
 **Public scope request:** <https://github.com/ideals2201/ai-monkey-value-audit/issues/new/choose>
 
 **Fixed-scope service catalog:** <https://ideals2201.github.io/ai-monkey-value-audit/services.html>
@@ -15,6 +17,7 @@ A small, fixed-price review for one public opportunity or one redacted automatio
 ## See the deliverable before buying
 
 - [Complete synthetic booking-workflow QA sample](https://ideals2201.github.io/ai-monkey-value-audit/sample-booking-qa.html)
+- [Synthetic automation incident evidence sample](https://ideals2201.github.io/ai-monkey-value-audit/automation-incident-evidence-sample.html)
 - [Exact-catalog Swiss quote prototype](https://ideals2201.github.io/ai-monkey-value-audit/swiss-quote-prototype.html)
 - [Tender-readiness prototype](https://ideals2201.github.io/ai-monkey-value-audit/tender-readiness-prototype.html)
 
