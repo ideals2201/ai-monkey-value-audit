@@ -1,4 +1,3 @@
-# GitHub renders these as repository funding links. Each destination has a public scope or product page.
-custom:
-  - https://automationworkflows.io/product/support-inbox-triage-starter-tinyops
-  - https://ideals2201.github.io/ai-monkey-value-audit/n8n-reliability-harness-customization.html
+# Optional support for maintaining the repository's public synthetic samples.
+# This is not a service purchase and does not provide priority or guaranteed work.
+custom: ["https://paypal.me/binhai2001"]
