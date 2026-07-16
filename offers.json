@@ -50,6 +50,15 @@
       "payment_url": "https://paypal.me/binhai2001/10"
     },
     {
+      "name": "n8n Reliability Harness Customization",
+      "price": 25,
+      "delivery": "within two business days after public scope confirmation, payment, and complete sanitized intake",
+      "scope": "one sanitized workflow export or data contract; one customized credential-free inactive n8n JSON; up to six synthetic fixtures; short run and acceptance note; no deployment, production access, external calls, or provider approval",
+      "scope_url": "https://ideals2201.github.io/ai-monkey-value-audit/n8n-reliability-harness-customization.html",
+      "intake_url": "https://github.com/ideals2201/ai-monkey-value-audit/issues/new?title=USD%2025%20n8n%20harness%20scope%20request",
+      "payment_url": "https://paypal.me/binhai2001/25"
+    },
+    {
       "name": "n8n, Make, Zapier & AI Workflow Automation Starter Kit",
       "price": 29,
       "delivery": "instant self-serve access after purchase",
