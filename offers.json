@@ -27,6 +27,13 @@
       "price": 0,
       "scope": "browser-based directional estimate using time, labor-cost, tool-cost, and implementation-cost assumptions; no production data required",
       "url": "https://tinyopsstudio.com/automation-roi-calculator"
+    },
+    {
+      "name": "Support Ticket Triage Lite",
+      "price": 0,
+      "scope": "inactive credential-free n8n JSON with Manual Trigger, three synthetic tickets, deterministic category/priority/SLA/next-step rules, and three executable assertions; no webhook or external connections",
+      "url": "https://ideals2201.github.io/ai-monkey-value-audit/support-ticket-triage-lite.html",
+      "download_url": "https://ideals2201.github.io/ai-monkey-value-audit/downloads/support-ticket-triage-lite.n8n.json"
     }
   ],
   "offers": [
