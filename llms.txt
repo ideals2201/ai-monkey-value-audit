@@ -23,3 +23,4 @@ Suggested path: free directional estimate, USD 29 self-serve planning, USD 49 bo
 ## Safety and scope
 
 Initial intake must use public, synthetic, or fully sanitized material. Do not send passwords, OTPs, API keys, cookies, production credentials, payment-card data, wallet secrets, KYC/tax documents, or unredacted customer data through public pages. Exact inclusions, exclusions, and delivery timing are stated on each Whop product page. No revenue, performance, model-accuracy, legal, compliance, or security-certification guarantee is offered.
+Automation incident evidence use case: https://ideals2201.github.io/ai-monkey-value-audit/automation-incident-evidence.html
