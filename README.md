@@ -20,6 +20,7 @@ A small, fixed-price review for one public opportunity or one redacted automatio
 
 - [Complete synthetic booking-workflow QA sample](https://ideals2201.github.io/ai-monkey-value-audit/sample-booking-qa.html)
 - [Synthetic automation incident evidence sample](https://ideals2201.github.io/ai-monkey-value-audit/automation-incident-evidence-sample.html)
+- [Synthetic candidate intake CRM reliability sample](https://ideals2201.github.io/ai-monkey-value-audit/candidate-intake-crm-sample.html)
 - [Exact-catalog Swiss quote prototype](https://ideals2201.github.io/ai-monkey-value-audit/swiss-quote-prototype.html)
 - [Tender-readiness prototype](https://ideals2201.github.io/ai-monkey-value-audit/tender-readiness-prototype.html)
 
