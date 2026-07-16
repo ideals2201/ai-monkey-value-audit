@@ -39,3 +39,4 @@ Initial intake must use public, synthetic, or fully sanitized material. Do not s
 Automation incident evidence use case: https://ideals2201.github.io/ai-monkey-value-audit/automation-incident-evidence.html
 Fully synthetic incident evidence sample: https://ideals2201.github.io/ai-monkey-value-audit/automation-incident-evidence-sample.html
 Synthetic candidate intake CRM reliability sample: https://ideals2201.github.io/ai-monkey-value-audit/candidate-intake-crm-sample.html
+Credential-free n8n candidate intake reliability harness: https://ideals2201.github.io/ai-monkey-value-audit/downloads/candidate-intake-reliability-harness.n8n.json
