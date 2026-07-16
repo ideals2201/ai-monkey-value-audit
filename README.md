@@ -14,6 +14,8 @@ A small, fixed-price review for one public opportunity or one redacted automatio
 
 **Machine-readable offers:** <https://ideals2201.github.io/ai-monkey-value-audit/offers.json> · **LLM discovery:** <https://ideals2201.github.io/ai-monkey-value-audit/llms.txt>
 
+**Affiliate program:** Promote the USD 49 Quick Workflow Triage through Whop for the currently published 50% commission (USD 24.50 at full price). [Read the public terms](https://tinyopsstudio.com/affiliates) · [Join on Whop](https://whop.com/tinyops-studio-llc/affiliates). Cookie duration is not publicly specified; disclose the relationship and do not use spam, self-referrals, or unsupported earnings claims.
+
 ## See the deliverable before buying
 
 - [Complete synthetic booking-workflow QA sample](https://ideals2201.github.io/ai-monkey-value-audit/sample-booking-qa.html)
