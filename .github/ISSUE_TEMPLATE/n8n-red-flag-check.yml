@@ -1,0 +1,45 @@
+name: Request a USD 5 n8n red-flag check
+description: Confirm the scope for one public, synthetic, or fully sanitized n8n artifact.
+title: "n8n red-flag check: "
+labels:
+  - audit-request
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Submit one public, synthetic, or fully sanitized artifact. Payment is requested only after the USD 5 scope is confirmed.
+
+        **Do not submit passwords, OTPs, API keys, cookies, production credentials, payment data, wallet secrets, KYC/tax documents, private screenshots, or unredacted customer data.**
+  - type: input
+    id: public_url
+    attributes:
+      label: Public or synthetic artifact URL
+      description: Link to one public workflow page, synthetic screenshot, or fully sanitized excerpt.
+      placeholder: https://example.com/public-or-synthetic-artifact
+    validations:
+      required: true
+  - type: textarea
+    id: journey
+    attributes:
+      label: Intended input-to-output journey
+      placeholder: "Webhook payload should create exactly one normalized support ticket."
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: One question
+      description: Ask about one failure, retry, duplication, mapping, or evidence gap.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Scope and safety confirmation
+      options:
+        - label: I confirm this request contains only public, synthetic, or fully sanitized information and no secrets or private customer data.
+          required: true
+        - label: I understand this delivers one red flag and one next test, not implementation or an exhaustive audit.
+          required: true
+        - label: I understand payment is requested only after the USD 5 scope is confirmed.
+          required: true

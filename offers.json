@@ -38,6 +38,15 @@
   ],
   "offers": [
     {
+      "name": "n8n Workflow Red-Flag Check",
+      "price": 5,
+      "delivery": "within 24 hours after scope confirmation, payment, and complete public-safe intake",
+      "scope": "one public, synthetic, or fully sanitized n8n artifact; one highest-risk finding; evidence separated from inference; one next test with an observable pass condition; no implementation or production access",
+      "scope_url": "https://ideals2201.github.io/ai-monkey-value-audit/n8n-red-flag-check.html",
+      "intake_url": "https://github.com/ideals2201/ai-monkey-value-audit/issues/new?template=n8n-red-flag-check.yml",
+      "payment_url": "https://paypal.me/binhai2001/5"
+    },
+    {
       "name": "Public-Source Value Audit",
       "price": 10,
       "delivery": "within 24 hours after scope confirmation and complete intake",
