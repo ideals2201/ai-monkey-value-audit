@@ -25,7 +25,7 @@ The full sample shows the actual structure: a GO / HOLD / NO-GO decision, state 
 - Price: **USD 10**
 - Turnaround: **within 24 hours** after scope confirmation
 - Input: one public URL, synthetic payload, or fully redacted workflow description
-- Scope confirmation: `binhaitjzhda@gmail.com`
+- Scope confirmation: `zhangmacmini@gmail.com`
 - Public scope confirmation: GitHub issue form (public or synthetic material only)
 - Payment after scope confirmation: <https://paypal.me/binhai2001/10>
 
