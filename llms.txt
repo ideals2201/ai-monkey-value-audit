@@ -4,6 +4,8 @@
 
 Canonical catalog: https://ideals2201.github.io/ai-monkey-value-audit/services.html
 Machine-readable offers: https://ideals2201.github.io/ai-monkey-value-audit/offers.json
+GitHub profile: https://github.com/ideals2201
+External developer profile: https://profiles.dev/ideals2201
 Full synthetic QA sample: https://ideals2201.github.io/ai-monkey-value-audit/sample-booking-qa.html
 Free support-ticket triage Lite sample: https://ideals2201.github.io/ai-monkey-value-audit/support-ticket-triage-lite.html
 Credential-free Lite JSON: https://ideals2201.github.io/ai-monkey-value-audit/downloads/support-ticket-triage-lite.n8n.json
