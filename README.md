@@ -29,6 +29,7 @@ A small, fixed-price review for one public opportunity or one redacted automatio
 - [Synthetic candidate intake CRM reliability sample](https://ideals2201.github.io/ai-monkey-value-audit/candidate-intake-crm-sample.html)
   - [Download the credential-free n8n reliability harness](https://ideals2201.github.io/ai-monkey-value-audit/downloads/candidate-intake-reliability-harness.n8n.json) — six synthetic fixtures, no external calls, no credentials.
 - [Free Support Ticket Triage Lite](https://ideals2201.github.io/ai-monkey-value-audit/support-ticket-triage-lite.html) — three executable synthetic assertions and a credential-free n8n JSON; the USD 12 complete starter remains a separate marketplace download.
+- [MIT-licensed n8n sample directory](downloads/README.md) — the two inactive, credential-free JSON workflows in `downloads/` are reusable under the MIT License; other repository files are not covered unless stated separately.
 - [Exact-catalog Swiss quote prototype](https://ideals2201.github.io/ai-monkey-value-audit/swiss-quote-prototype.html)
 - [Tender-readiness prototype](https://ideals2201.github.io/ai-monkey-value-audit/tender-readiness-prototype.html)
 
