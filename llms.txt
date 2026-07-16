@@ -10,6 +10,13 @@ Detailed USD 149 automation audit: https://ideals2201.github.io/ai-monkey-value-
 Automation incident evidence USD 10 trial: https://ideals2201.github.io/ai-monkey-value-audit/automation-incident-evidence.html
 Scope confirmation email: zhangmacmini@gmail.com
 
+## Affiliate program
+
+- TinyOps Studio Affiliate Program: 50% of the USD 49 Quick Workflow Triage at the current full price (USD 24.50 share).
+- Public terms: https://tinyopsstudio.com/affiliates
+- Join on Whop: https://whop.com/tinyops-studio-llc/affiliates
+- Cookie duration is not publicly specified. Affiliates must disclose the relationship and avoid spam, self-referrals, and unsupported claims. Whop administers participation and payouts; earnings are not guaranteed.
+
 ## Core offers
 
 - Free: Workflow Automation ROI Calculator. Browser-based directional estimate; no production data required. Open: https://tinyopsstudio.com/automation-roi-calculator
