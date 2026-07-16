@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Synthetic n8n Red-Flag Check Sample | TinyOps Studio</title>
+<meta name="description" content="A fully synthetic example of the USD 5 n8n Workflow Red-Flag Check: one evidence-bounded finding and one observable next test.">
+<style>:root{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#172033;background:#f5f7fb}*{box-sizing:border-box}body{margin:0}main{max-width:820px;margin:0 auto;padding:48px 22px}.panel{background:#fff;border:1px solid #dfe5ef;border-radius:20px;padding:clamp(24px,5vw,48px);box-shadow:0 18px 60px #1b31520c}.eyebrow{color:#3159d9;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem}h1{font-size:clamp(2rem,6vw,3.6rem);line-height:1.04;letter-spacing:-.045em;margin:.35em 0}.notice,.block{border-radius:12px;padding:16px 18px;margin:20px 0}.notice{background:#fff6d8;border:1px solid #ead58e}.block{background:#f7f9fd;border:1px solid #dfe5ef}.label{font-size:.75rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:#3159d9}p{line-height:1.65}.button{display:inline-block;padding:13px 18px;border-radius:11px;color:#fff;background:#3159d9;text-decoration:none;font-weight:750;margin:8px 8px 8px 0}nav{margin-top:22px}nav a{margin-right:16px}code{background:#edf1f7;padding:.1em .35em;border-radius:5px}</style>
+</head><body><main><article class="panel">
+<div class="eyebrow">Example deliverable</div><h1>One red flag. One next test.</h1>
+<div class="notice"><strong>Fully synthetic example.</strong> This is not a client result and was not run against a live or production system.</div>
+<h2>Stated scenario</h2><p>A synthetic webhook workflow receives a support request containing <code>event_id: evt_demo_1042</code>, creates a ticket record, and returns an acknowledgement. The sender may retry the same event if the acknowledgement is delayed.</p>
+<div class="block"><div class="label">Highest-risk red flag</div><h2>A retry can create a duplicate ticket.</h2>
+<p><strong>Evidence in the supplied synthetic artifact:</strong> the path writes a new record immediately after the webhook, and the supplied path shows no lookup, uniqueness check, or idempotency decision using <code>event_id</code> before that write.</p>
+<p><strong>Inference:</strong> if the sender retries <code>evt_demo_1042</code>, the workflow may execute the write again. This is a risk hypothesis, not proof that a duplicate has occurred.</p>
+<p><strong>Why it matters:</strong> two tickets for one request can split ownership and trigger conflicting replies.</p></div>
+<div class="block"><div class="label">One next test</div><h2>Replay the exact same synthetic event twice.</h2>
+<p>Send the same fully synthetic payload twice with <code>event_id: evt_demo_1042</code>.</p>
+<p><strong>Observable pass condition:</strong> after both executions, exactly one ticket record exists for <code>evt_demo_1042</code>; the second execution is visibly classified as a duplicate and creates no additional record.</p></div>
+<p>This sample intentionally stops here. Implementation, production access, and an exhaustive audit are outside the USD 5 scope.</p>
+<a class="button" href="https://github.com/ideals2201/ai-monkey-value-audit/issues/new?template=n8n-red-flag-check.yml">Request a USD 5 check</a>
+<nav><a href="n8n-red-flag-check.html">Offer and safety boundary</a><a href="n8n-reliability-harness-customization.html">USD 25 test harness</a><a href="services.html">All offers</a></nav>
+</article></main></body></html>
