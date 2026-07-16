@@ -2,6 +2,7 @@ import fs from 'node:fs';
 
 const path = new URL('../downloads/candidate-intake-reliability-harness.n8n.json', import.meta.url);
 const workflow = JSON.parse(fs.readFileSync(path, 'utf8'));
+if (!workflow.id || typeof workflow.id !== 'string') throw new Error('Workflow id is required for n8n CLI import');
 const fixturesNode = workflow.nodes.find((node) => node.name === 'Synthetic fixtures');
 const assertionsNode = workflow.nodes.find((node) => node.name === 'Normalize and assert contracts');
 if (!fixturesNode || !assertionsNode) throw new Error('Required Code nodes are missing');
